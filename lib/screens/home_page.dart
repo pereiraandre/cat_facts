@@ -31,12 +31,14 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: [
                 const Spacer(),
-                Text(
-                  finalFacts,
-                  style: const TextStyle(
-                      color: Colors.grey,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15),
+                Center(
+                  child: Text(
+                    finalFacts,
+                    style: const TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
                 ),
                 const SizedBox(height: 20,),
                 BlocBuilder<GetFactsCubit, GetFactsState>(builder: (context, state){
