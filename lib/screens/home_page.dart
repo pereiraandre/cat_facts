@@ -31,20 +31,20 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: [
                 const Spacer(),
-                Center(
-                  child: Text(
-                    finalFacts,
-                    style: const TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15),
-                  ),
+                Container(
+                  padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+                  child: state is GetFactsLoading
+                      ? const CircularProgressIndicator(
+                          color: Colors.grey,
+                        )
+                      : Text(
+                          finalFacts,
+                          style: const TextStyle(
+                              color: Colors.grey,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15),
+                        ),
                 ),
-                const SizedBox(height: 20,),
-                BlocBuilder<GetFactsCubit, GetFactsState>(builder: (context, state){
-                  if(state is GetFactsLoading){
-                    return const CircularProgressIndicator();
-                  }return Container();}),
                 const Spacer(),
                 TextButton(
                   onPressed: () {
